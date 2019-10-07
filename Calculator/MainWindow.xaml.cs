@@ -46,7 +46,14 @@ namespace Calculator
 
         private void BtnPercentage_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lastNumber !=0)
+            {
+                newNumber = lastNumber * (Convert.ToDouble(lblResult.Content.ToString()) / 100);
+            }
+            else
+            {
+                lblResult.Content = (Convert.ToDouble(lblResult.Content.ToString()) / 100).ToString();
+            }
         }
 
         private void BtnOne_Click(object sender, RoutedEventArgs e)
@@ -70,17 +77,15 @@ namespace Calculator
 
        
 
-        private void BtnMinius_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
         private void BtnEquals_Click(object sender, RoutedEventArgs e)
         {            
             if (lastNumber != 0 )
             {
-                newNumber= Convert.ToDouble(lblResult.Content.ToString());
+                if (newNumber == 0)
+                {
+                    newNumber = Convert.ToDouble(lblResult.Content.ToString());
+                }
+                
 
                 switch (selectedOperator)
                 {
@@ -97,6 +102,9 @@ namespace Calculator
                         lblResult.Content = SimpleMath.Divide(lastNumber, newNumber);
                         break;
                 }
+
+                lastNumber = Convert.ToDouble(lblResult.Content.ToString());
+                newNumber = 0;
             }
         }
 
@@ -110,10 +118,6 @@ namespace Calculator
 
         }
 
-        private void BtnDivision_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BtnAC_Click(object sender, RoutedEventArgs e)
         {
@@ -125,7 +129,11 @@ namespace Calculator
 
         private void BtnOperation_Click(object sender, RoutedEventArgs e)
         {
-            lastNumber = Convert.ToDouble(lblResult.Content.ToString());
+
+            if (lastNumber == 0)
+            {
+                lastNumber = Convert.ToDouble(lblResult.Content.ToString());               
+            }
 
             lblResult.Content = "0";
 
@@ -161,6 +169,8 @@ namespace Calculator
             {
                 lblResult.Content = $"{lblResult.Content}" + pressedNumberButton.Content.ToString();
             }
+
+            newNumber = 0;
         }
 
         
