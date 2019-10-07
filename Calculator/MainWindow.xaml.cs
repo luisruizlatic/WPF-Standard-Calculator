@@ -190,6 +190,12 @@ namespace Calculator
         }
         public static double Divide(double num1, double num2)
         {
+            if (num2 == 0)
+            {
+                MessageBox.Show("Division by 0 is not supprted", "Wrong oeration", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return 0;
+            }
+
             return num1 / num2;
         }
     }
