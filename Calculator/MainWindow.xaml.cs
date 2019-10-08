@@ -72,7 +72,7 @@ namespace Calculator
 
         private void BtnNegative_Click(object sender, RoutedEventArgs e)
         {
-
+            lblResult.Content = (Convert.ToDouble(lblResult.Content.ToString()) * -1).ToString();
         }
 
        
