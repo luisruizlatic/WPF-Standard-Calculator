@@ -24,25 +24,12 @@ namespace Calculator
         double newNumber = 0;
         SelectedOperator selectedOperator;
 
+
         public MainWindow()
         {
-            InitializeComponent();
-
-           
+            InitializeComponent();           
         }
 
-
-        private void BtnPlus_Click(object sender, RoutedEventArgs e)
-        {
-            if (lblResult.Content.ToString() != "0")
-            {
-                lblResult.Content += "2";
-            }
-            else
-            {
-                lblResult.Content = "2";
-            }
-        }
 
         private void BtnPercentage_Click(object sender, RoutedEventArgs e)
         {
@@ -56,18 +43,6 @@ namespace Calculator
             }
         }
 
-        private void BtnOne_Click(object sender, RoutedEventArgs e)
-        {
-            if (lblResult.Content.ToString() != "0")
-            {
-                lblResult.Content += "1";
-            }
-            else
-            {
-                lblResult.Content = "1";
-            }
-
-        }
 
 
         private void BtnNegative_Click(object sender, RoutedEventArgs e)
@@ -75,7 +50,6 @@ namespace Calculator
             lblResult.Content = (Convert.ToDouble(lblResult.Content.ToString()) * -1).ToString();
         }
 
-       
 
         private void BtnEquals_Click(object sender, RoutedEventArgs e)
         {            
@@ -84,8 +58,7 @@ namespace Calculator
                 if (newNumber == 0)
                 {
                     newNumber = Convert.ToDouble(lblResult.Content.ToString());
-                }
-                
+                }                
 
                 switch (selectedOperator)
                 {
@@ -115,7 +88,6 @@ namespace Calculator
             {
                 lblResult.Content += ".";
             }
-
         }
 
 
@@ -126,6 +98,7 @@ namespace Calculator
             lblResult.Content = "0";
 
         }
+
 
         private void BtnOperation_Click(object sender, RoutedEventArgs e)
         {
@@ -176,6 +149,7 @@ namespace Calculator
         
     }
 
+
     public enum SelectedOperator
     {
         Multiplication,
@@ -183,6 +157,7 @@ namespace Calculator
         Addition,
         Division
     }
+
 
     public class SimpleMath
     {
